@@ -1,26 +1,37 @@
-const userDetails =[
-    {id : 1, name : "abc" , Age : 25, hobbies : ['reading','writing','drawing']},
-    {id : 1, name : "xyz" , Age : 26, hobbies : ['reading','travelling','dancing']},
-    {id : 1, name : "pqr" , Age : 24, hobbies : ['travelling','writing','drawing']},
-    {id : 1, name : "cid" , Age : 21, hobbies : ['reading','music','singing']},
-    {id : 1, name : "did" , Age : 22, hobbies : ['dancing','writing','singing']},];
-/* let arr=[];
-for (let i=0; i< userDetails.length ; i++)
+const userDetails =[{id : 1, name : "abc" , Age : 25, hobbies : ['reading','writing','drawing']},
+{id : 1, name : "xyz" , Age : 26, hobbies : ['reading','travelling','dancing']},
+{id : 1, name : "pqr" , Age : 24, hobbies : ['travelling','writing','drawing']},
+{id : 1, name : "uvw" , Age : 21, hobbies : ['reading','music','singing']},
+{id : 1, name : "efg" , Age : 22, hobbies : ['dancing','writing','singing']},];
+function getListByHobbies(userDetails){
+let map = new Map();
+let user=[];
+for(let i=0;i<userDetails.length;i++)
 {
-    for (let j=1 ; j< userDetails.length;j++){
-        if (userDetails[i].hobbies[i] == userDetails[j].hobbies[i]){
-            arr.push(userDetails[j].name);
-      }
-    }
-    
+for(let j=0;j<userDetails[i].hobbies.length;j++)
+{
+if(map.has(userDetails[i].hobbies[j]))
+{
+user = map.get(userDetails[i].hobbies[j]);
+user.push(userDetails[i].name);
+map.set(userDetails[i].hobbies[j],user);
 }
- */
-/* console.log(userDetails[0].hobbies[0]);
-console.log(userDetails[1].hobbies[1]);*/
- 
-//for ( let i =0 ; i < userDetails.length ; i++){
-const createGroup = userDetails.reduce((a,b) => (a.hobbies == b.hobbies ? -1:1));
-//}
-console.log(createGroup); 
+else{
+let user=[];
+user.push(userDetails[i].name);
+map.set(userDetails[i].hobbies[j],user);
+}                    
+}
+}
+return map;
+}       
+let arrayMap = getListByHobbies(userDetails);
 
+
+for ( let key of arrayMap.keys()){
+    document.write("<strong>"+key+"</strong>")
+    document.write("<br>")
+    document.write(arrayMap.get(key));
+    document.write("<br>")
+}
 

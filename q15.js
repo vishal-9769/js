@@ -1,12 +1,13 @@
-
-let emailid = document.getElementById("email").value;
-function checkEmail(emailid){
-    
-    let emailRegex = "/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/"
-    if (emailRegex.match(emailid))
-     alert("valid Email");
-    else
-     alert("invalid Email");
+function checkEmail(){
+    let emailid = document.getElementById("email").value;
+ 
+     if (emailid.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)){
+     
+        alert("valid Email");
+    }
+    else {
+   
+    alert("Invalid Email");
+    } 
 }
 
-checkEmail(emailid);

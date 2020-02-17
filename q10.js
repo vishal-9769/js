@@ -2,8 +2,9 @@ let date1 = prompt("Enter the date1 (YYYY-MM-DD)");
 date3 = new Date(date1);
 let date2 = prompt("Enter the date2 (YYYY-MM-DD)");
 date4 = new Date(date2);
-diff = (date3 - date4);
+diff = (date4 - date3);
 let newDateFormat=(diff/(1000*60*60*24));
+console.log(newDateFormat);
     let years=0,days=0,months=0;
     temp = newDateFormat;
     while(temp>0){
@@ -40,5 +41,5 @@ let newDateFormat=(diff/(1000*60*60*24));
                     break;
                 }
         }
-
+ 
 document.write(years+" Years,"+months+" Months, "+temp+" days");

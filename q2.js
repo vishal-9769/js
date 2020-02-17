@@ -1,28 +1,14 @@
-let totalNumber = +prompt('enter Total Element:');
-let arr=[];
-let number;
-let even
-let j=1;
-//let i=0;
-for ( let k=0 ; k<totalNumber; k++){
-    number=prompt('enter number');
-     even = number.split("");
-}
-
-
-
-
-for ( let i = 0 ; i < even.length ; i++){
-
-     if ( even[i] % 2 == 0 && even[j] % 2 == 0){
-        arr.push(even[i] +"-"+ even[j]);
+function addDashBetweenEven(number) {
+    let result= [];
+    for (let i=0; i<number.length; i++) {
+        if (number[i]%2 == 0 && number[i+1]%2 == 0) {
+            result.push(number[i],'-');
+        }
+        else {
+            result.push(number[i]);
+        }
     }
-    else{
-        arr.push(even[i],even[j]);
-    }
-    j++;
+    document.write(result.join('')); 
 }
-    
-
-
-document.write(arr.join(",")); 
+let number = prompt("enter Number");
+addDashBetweenEven(number);
